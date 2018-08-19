@@ -50,6 +50,9 @@ class TerpretProblem:
         else:
             # calculate posterior updates assuming the XOR outputs are 0.
             def mf_update(i, current_q):
+                # todo: this isn't quite right. The true MF update would look like WJ page 217 (57).
+                # todo: in the true updates, the local weight will not matter because the XOR constraints dominate.
+                # todo: the actual update also averages in log space, not in probability space.
                 i_left = tf.mod(i - 1, opts.k)
                 i_right = tf.mod(i + 1, opts.k)
                 avg = (self.mus_opt[i, :] + current_q[i_left, :] + current_q[i_right, :]) / 3.0
