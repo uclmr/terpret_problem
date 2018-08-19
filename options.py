@@ -7,6 +7,7 @@ def parse_options():
     parser.add_argument('--alpha', action='store', dest='alpha', type=float, default=1.0, help="Dirichlet hyperparameter")
     parser.add_argument('--learning_rate', action='store', dest='learning_rate', type=float, default=0.001, help="Learning rate")
     parser.add_argument('--stochastic', action='store', dest='stochastic', type=bool, default=False, help="Do stochastic training")
+    parser.add_argument('--mean_field', action='store_true', dest='mean_field', default=False, help="Train with ELBO and MF")
     parser.add_argument('--entropy_weight', action='store', dest='entropy_weight', type=float, default=0., help="Entropy weight")
     parser.add_argument('--temp', action='store', dest='temp', type=float, default=1., help="Temperature")
     parser.add_argument('--n_epochs', action='store', dest='n_epochs', type=int, default=100000, help="Number of epochs")
